@@ -16,7 +16,7 @@ class Filler(object):
         options = webdriver.FirefoxOptions()
         options.accept_insecure_certs = True
         # driver = webdriver.Firefox()
-        driver = webdriver.Firefox(firefox_options=options)
+        driver = webdriver.Firefox(executable_path=r'/app/geckodriver', firefox_options=options)
 
         for url in self.url_list:
             driver.get(url)
@@ -59,6 +59,6 @@ class Filler(object):
                 submit.click()
                 sleep(5)
 
-
+            driver.quit()
 
 
