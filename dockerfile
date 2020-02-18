@@ -9,6 +9,8 @@ ENV PYTHONUNBUFFERED 1
 RUN sudo apt-get update && \
   sudo apt-get install -y --no-install-recommends \
   xvfb \
+  xserver-xephyr \
+  vnc4server \
   libdbus-glib-1-2 \
   libgtk2.0-0 \
   libasound2 \
@@ -17,6 +19,7 @@ RUN sudo apt-get update && \
   python3-setuptools\
   python3-dev \
   python3-venv \
+  python-pil \
   && sudo rm -rf /var/lib/apt/lists/*
 
 COPY ./ /app

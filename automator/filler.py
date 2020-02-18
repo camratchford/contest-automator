@@ -14,12 +14,12 @@ class Filler(object):
         self.popup_el = ""
 
     def fill(self):
-        display = Display(visible=0, size=(1920, 1080))
+        display = Display(backend='xvfb' ,use_xauth=True, visible=1, size=(1920, 1080))
         display.start()
 
         options = webdriver.FirefoxOptions()
         options.accept_insecure_certs = True
-        options.headless = True
+        # options.headless = True
         # driver = webdriver.Firefox()
         driver = webdriver.Firefox(executable_path=r'/app/geckodriver', firefox_options=options)
         driver.set_window_size(1920, 1080)
