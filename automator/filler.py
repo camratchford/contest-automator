@@ -1,3 +1,4 @@
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from time import sleep
 
@@ -13,6 +14,9 @@ class Filler(object):
         self.popup_el = ""
 
     def fill(self):
+        display = Display(visible=0, size=(1920, 1080))
+        display.start()
+
         options = webdriver.FirefoxOptions()
         options.accept_insecure_certs = True
         # driver = webdriver.Firefox()
@@ -59,6 +63,7 @@ class Filler(object):
                 submit.click()
                 sleep(5)
 
-            driver.quit()
+            driver.close()
+            display.stop()
 
 
