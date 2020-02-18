@@ -22,6 +22,10 @@ class Filler(object):
         options.headless = True
         # driver = webdriver.Firefox()
         driver = webdriver.Firefox(executable_path=r'/app/geckodriver', firefox_options=options)
+        driver.set_window_size(1920, 1080)
+
+        driver.set_script_timeout(30)
+        driver.set_page_load_timeout(30)
 
         for url in self.url_list:
             driver.get(url)
