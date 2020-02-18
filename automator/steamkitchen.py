@@ -1,8 +1,8 @@
-from scanner import Scanner
-from filler import Filler
+from automator.scanner import Scanner
+from automator.filler import Filler
 
 
-def main():
+def steamkitchen():
     top_level_el = "div"
     top_level_attribute = {"class": "archives"}
     key_el = "a"
@@ -31,6 +31,3 @@ def main():
     filly = Filler(keypairs, submit, contest_list)
     filly.fill()
 
-
-if __name__ == "__main__":
-    main()

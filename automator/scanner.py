@@ -22,7 +22,7 @@ class Scanner(object):
         # If pagination_enabled is set to false, you still have to provide the starting page and pagination string vars
         self.pagination_enabled = True
         self.starting_page = starting_page
-        self.page = starting_page
+        self.current_page = starting_page
         self.pagination_string = pagination_string
         self.yielded_results = True
 
@@ -62,10 +62,10 @@ class Scanner(object):
     def run(self):
         if self.pagination_enabled:
             while self.yielded_results:
-                url_page = self.base_url + self.pagination_string + str(self.page)
+                url_page = self.base_url + self.pagination_string + str(self.current_page)
                 self.url = url_page
                 self.scrape()
-                self.page += 1
+                self.current_page += 1
             return self.dump()
         else:
             self.scrape()

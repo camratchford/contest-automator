@@ -1,8 +1,8 @@
-from scanner import Scanner
-from filler import Filler
+from automator.scanner import Scanner
+from automator.filler import Filler
 
 
-def main():
+def idropnews():
     top_level_el = "article"
     top_level_attribute = {"class": "giveaway-container box-shadow-nohover gac-hide"}
     key_el = "a"
@@ -37,5 +37,4 @@ def main():
     filly.fill()
 
 
-if __name__ == "__main__":
-    main()
+

@@ -1,8 +1,8 @@
-from scanner import Scanner
-from filler import Filler
+from automator.scanner import Scanner
+from automator.filler import Filler
 
 
-def main():
+def leitesculinaria():
     top_level_el = "header"
     top_level_attribute = {"class": "entry-header"}
     key_el = "a"
@@ -27,6 +27,3 @@ def main():
     filly = Filler(keypairs, submit, contest_list)
     filly.fill()
 
-
-if __name__ == "__main__":
-    main()
