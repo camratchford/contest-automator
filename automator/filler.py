@@ -19,6 +19,7 @@ class Filler(object):
 
         options = webdriver.FirefoxOptions()
         options.accept_insecure_certs = True
+        options.headless = True
         # driver = webdriver.Firefox()
         driver = webdriver.Firefox(executable_path=r'/app/geckodriver', firefox_options=options)
 
