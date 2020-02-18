@@ -1,0 +1,23 @@
+{
+  "scanner_url": "https://steamykitchen.com/current-giveaways",
+  "scanner_top_level_element": "div",
+  "scanner_top_level_attribute": {"class": "archives"},
+  "scanner_key_element": "a",
+  "scanner_key_attribute": {"href": ""},
+  "scanner_qualifier_el": "title",
+  "scanner_qualifier_val": "Past Winners",
+  "scanner_pagination_enabled": "",
+  "scanner_starting_page": 0,
+  "scanner_pagination_string": "",
+  "filler_key_pairs": {
+      "//input[@id='skg_first_name']": "FirstName",
+      "//input[@id='skg_last_name']": "LastName",
+      "//input[@id='skg_email']": "Email"
+    },
+  "filler_submit_element": "//input[@id='skg_submit_button']",
+  "filler_first_click": "",
+  "filler_first_click_el": "",
+  "filler_popups": "",
+  "filler_popup_el": ""
+}
+

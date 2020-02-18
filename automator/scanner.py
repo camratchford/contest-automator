@@ -60,6 +60,7 @@ class Scanner(object):
         return self.results_list
 
     def run(self):
+        print(self.pagination_enabled)
         if self.pagination_enabled:
             while self.yielded_results:
                 url_page = self.base_url + self.pagination_string + str(self.current_page)

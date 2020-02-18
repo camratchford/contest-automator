@@ -1,0 +1,21 @@
+{
+  "scanner_url": "https://leitesculinaria.com/category/giveaways",
+  "scanner_top_level_element": "header",
+  "scanner_top_level_attribute": {"class": "entry-header"},
+  "scanner_key_element": "a",
+  "scanner_key_attribute": {"href": ""},
+  "scanner_qualifier_el": "rel",
+  "scanner_qualifier_val": "author",
+  "scanner_pagination_enabled": "True",
+  "scanner_starting_page": 1,
+  "scanner_pagination_string": "/page/",
+  "filler_key_pairs": {
+      "//input[@id='giveaway_entry_name']": "FullName",
+      "//input[@id='giveaway_entry_email']": "Email"
+    },
+  "filler_submit_element": "//input[@value='Enter']",
+  "filler_first_click": "",
+  "filler_first_click_el": "",
+  "filler_popups": "",
+  "filler_popup_el": ""
+}

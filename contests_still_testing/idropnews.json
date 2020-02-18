@@ -1,0 +1,27 @@
+{
+  "scanner_url": "https://www.idropnews.com/giveaways/",
+  "scanner_top_level_element": "article",
+  "scanner_top_level_attribute": {"class": "giveaway-container box-shadow-nohover gac-hide"},
+  "scanner_key_element": "a",
+  "scanner_key_attribute": {"href": ""},
+  "scanner_qualifier_el": "class",
+  "scanner_qualifier_val": "hidden",
+  "scanner_pagination_enabled": "",
+  "scanner_starting_page": 0,
+  "scanner_pagination_string": "",
+  "filler_key_pairs": {
+      "//input[@id='skg_first_name']": "FirstName",
+      "//input[@id='skg_last_name']": "LastName",
+      "//input[@id='skg_email']": "Email"
+    },
+  "filler_submit_element": [
+    "//span[text()='I am at least 18 years of age (required)']",
+    "//input[@uib-tooltip'Please complete your details to continue']"
+  ],
+  "filler_first_click": "True",
+  "filler_first_click_el": "//a[@href='https://gleam.io/cookiefix?sa=https://gleam.io/wB4Ag/idrop-news-apple-iphone-11-pro-max-giveaway%3Fl%3Dhttps%253A%252F%252Fwww.idropnews.com%252Fgiveaways%252Fapple-iphone-11-pro-max-giveaway%252F117362%252F%26r%3D%26xdga%3D424950440.1581364605%26xdga_referrer%3D']",
+  "filler_popups": "True",
+  "filler_popup_el": ["//button[text()='Allow']"]
+
+}
+
