@@ -1,4 +1,5 @@
 from selenium import webdriver
+from time import sleep
 
 
 class Filler(object):
@@ -6,20 +7,57 @@ class Filler(object):
         self.key_pairs = key_pairs
         self.submit_element = submit_element
         self.url_list = url_list
+        self.first_click = False
+        self.first_click_el = ""
+        self.popups = False
+        self.popup_el = ""
 
     def fill(self):
-        options = webdriver.ChromeOptions()
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument("--test-type")
-        options.binary_location = "/usr/bin/chromium"
-        driver = webdriver.Chrome(chrome_options=options)
+        options = webdriver.FirefoxOptions()
+        options.accept_insecure_certs = True
+        # driver = webdriver.Firefox()
+        driver = webdriver.Firefox(firefox_options=options)
+
         for url in self.url_list:
             driver.get(url)
+            driver.get_cookies()
+            sleep(5)
+            if self.popups:
+                if isinstance(self.popup_el, list):
+                    for popup in self.popup_el:
+                        select = driver.find_element_by_xpath(popup)
+                        select.click()
+                        sleep(1)
+                        driver.switch_to.default_content()
+
+            if self.first_click:
+                if isinstance(self.first_click_el, list):
+                    for click in self.first_click_el:
+                        driver.get_cookies()
+                        sleep(5)
+                        clicking_first = driver.find_element_by_xpath(click)
+                        clicking_first.click()
+                else:
+                    print(type(self.first_click_el))
+                    driver.get_cookies()
+                    sleep(5)
+                    clicking_first = driver.find_element_by_xpath(self.first_click_el)
+                    clicking_first.click()
+
             for key in list(self.key_pairs.keys()):
-                element = driver.find_element_by_id(key)
+                element = driver.find_element_by_xpath(key)
                 element.send_keys(self.key_pairs[key])
-            submit = driver.find_element_by_id(self.submit_element)
-            submit.click()
+                sleep(0.3)
+            if isinstance(self.submit_element, list):
+                for el in self.submit_element:
+                    submit = driver.find_element_by_xpath(el)
+                    submit.click()
+                    sleep(0.3)
+                sleep(5)
+            else:
+                submit = driver.find_element_by_xpath(self.submit_element)
+                submit.click()
+                sleep(5)
 
 
 
