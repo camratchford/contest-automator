@@ -9,7 +9,6 @@ ENV PYTHONUNBUFFERED 1
 RUN sudo apt-get update && \
   sudo apt-get install -y --no-install-recommends \
   xvfb \
-  firefox-mozilla-build \
   libdbus-glib-1-2 \
   libgtk2.0-0 \
   libasound2 \
