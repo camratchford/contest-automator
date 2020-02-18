@@ -7,8 +7,10 @@ contests_still_testing
 ./tmp
 ./build/*
 .idea/*
+./.idea/
 .idea
 env
 venv
 *.vscode
 *.log
+/venv/
