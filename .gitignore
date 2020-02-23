@@ -3,16 +3,10 @@
 *.pub
 *.zip
 *.sql
-contests_still_testing
 ./tmp
 ./build/*
-.idea/*
-./.idea/
-.idea
 env
 venv
 *.vscode
 *.log
 /venv/
-/.idea/
-/contests_still_testing/
