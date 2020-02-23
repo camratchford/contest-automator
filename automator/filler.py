@@ -1,4 +1,4 @@
-from pyvirtualdisplay import Display
+# from pyvirtualdisplay import Display
 from selenium import webdriver
 from time import sleep
 
@@ -14,14 +14,17 @@ class Filler(object):
         self.popup_el = ""
 
     def fill(self):
-        display = Display(backend='xvfb' ,use_xauth=True, visible=1, size=(1920, 1080))
-        display.start()
+        # display = Display(backend='xvfb' ,use_xauth=True, visible=1, size=(1920, 1080))
+        # display.start()
 
-        options = webdriver.FirefoxOptions()
+        options = webdriver.ChromeOptions()
         options.accept_insecure_certs = True
-        # options.headless = True
+        options.headless = True
+        options.add_argument('--no-sandbox')
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--disable-gpu')
         # driver = webdriver.Firefox()
-        driver = webdriver.Firefox(executable_path=r'/app/geckodriver', firefox_options=options)
+        driver = webdriver.Chrome(executable_path=r'/app/automator/chromedriver', chrome_options=options)
         driver.set_window_size(1920, 1080)
 
         driver.set_script_timeout(30)
@@ -69,6 +72,6 @@ class Filler(object):
                 sleep(5)
 
             driver.close()
-            display.stop()
+            # display.stop()
 
 

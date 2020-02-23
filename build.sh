@@ -10,4 +10,5 @@ sudo docker run -it -d --rm \
         -e EMAIL=firstname.lastname@domain.tld \
         -e PHONE=1234567890 \
         --name contest_automator  \
+        --shm-size = 2g
 	contest_automator python3 run.py
