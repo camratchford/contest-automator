@@ -71,7 +71,7 @@ class Filler(object):
                 submit.click()
                 sleep(5)
 
-            driver.close()
+            # driver.close()
             # display.stop()
 
 

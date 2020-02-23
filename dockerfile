@@ -8,12 +8,6 @@ ENV PYTHONUNBUFFERED 1
 
 RUN sudo apt-get update && \
   sudo apt-get install -y --no-install-recommends \
-  xvfb \
-  xserver-xephyr \
-  vnc4server \
-  libdbus-glib-1-2 \
-  libgtk2.0-0 \
-  libasound2 \
   python3.7 \
   python3-pip \
   python3-setuptools\
