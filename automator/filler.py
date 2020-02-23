@@ -25,6 +25,8 @@ class Filler(object):
         driver.set_script_timeout(30)
         driver.set_page_load_timeout(30)
 
+        print(self.key_pairs)
+
         for url in self.url_list:
             driver.get(url)
             driver.get_cookies()
