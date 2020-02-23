@@ -1,4 +1,3 @@
-# from pyvirtualdisplay import Display
 from selenium import webdriver
 from time import sleep
 
@@ -14,16 +13,12 @@ class Filler(object):
         self.popup_el = ""
 
     def fill(self):
-        # display = Display(backend='xvfb' ,use_xauth=True, visible=1, size=(1920, 1080))
-        # display.start()
-
         options = webdriver.ChromeOptions()
         options.accept_insecure_certs = True
         options.headless = True
         options.add_argument('--no-sandbox')
         options.add_argument('--window-size=1920,1080')
         options.add_argument('--disable-gpu')
-        # driver = webdriver.Firefox()
         driver = webdriver.Chrome(executable_path=r'/app/automator/chromedriver', chrome_options=options)
         driver.set_window_size(1920, 1080)
 
@@ -70,8 +65,5 @@ class Filler(object):
                 submit = driver.find_element_by_xpath(self.submit_element)
                 submit.click()
                 sleep(5)
-
-            # driver.close()
-            # display.stop()
-
+            print("Submitted entry to {} contest".format(url))
 

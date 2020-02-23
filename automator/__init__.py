@@ -3,18 +3,14 @@ from . import coordinator
 import os
 import glob
 
+# Account details fetched from ENV tags in docker run
 account = {"FirstName": os.environ.get('FIRST_NAME'),
            "LastName": os.environ.get('LAST_NAME'),
            "FullName": str(os.environ.get('FIRST_NAME')) + " " + str(os.environ.get('LAST_NAME')),
            "Email": os.environ.get('EMAIL'),
            "Telephone": os.environ.get('PHONE')}
 
-# account = {"FirstName": "Cameron",
-#            "LastName": "Ratchford",
-#            "FullName": "Cameron Ratchford",
-#            "Email": "cjratchford@hotmail.com",
-#            "Telephone": "4033899337"}
-
+# Location of configuration files
 contests = glob.glob("/app/contests/*.json")
 
 
