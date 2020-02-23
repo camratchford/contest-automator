@@ -65,5 +65,5 @@ class Filler(object):
                 submit = driver.find_element_by_xpath(self.submit_element)
                 submit.click()
                 sleep(5)
-            print("Submitted entry to {} contest".format(url))
+            print("Submitted {} out of {} contests".format(str(self.url_list.index(url)+1), str(len(self.url_list))))
 
