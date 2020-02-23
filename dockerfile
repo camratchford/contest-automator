@@ -29,7 +29,7 @@ WORKDIR /app/automator
 RUN sudo -H python3 -m venv /app/automator/venv
 
 
-RUN sudo -H bash . /app/automator/venv/bin/activate
+RUN sudo -H bash /app/automator/venv/bin/activate
 RUN sudo -H pip3 install --upgrade pip
 RUN sudo -H pip3 install -r requirements.txt
 
