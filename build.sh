@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo docker image build --network mac_net -t contest_automator . 
-sudo docker run --entrypoint "/bin/sh" -it -d --rm \
+sudo docker run --entrypoint "/bin/sh" -it --rm \
 	--env="DISPLAY" \
 	--volume="$HOME/.Xauthority:/root/.Xauthority:rw"  \
 	--net mac_net --ip=10.0.10.25 \
