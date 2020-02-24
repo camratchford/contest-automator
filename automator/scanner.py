@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 
@@ -13,7 +14,7 @@ class Scanner(object):
         self.top_level_attribute = top_level_attribute
         self.key_element = key_element
         self.key_attribute = key_attribute
-        self.qualifier_el = qualifier_el
+        self.qualifier_attr = qualifier_el
         self.qualifier_val = qualifier_val
         self.base_url = url
         self.url = self.base_url
@@ -33,21 +34,35 @@ class Scanner(object):
 
     def scrape(self):
         self.html_contents = requests.get(self.url).text
+
         self.soup = BeautifulSoup(self.html_contents, "html5lib")
 
         print(self.url)
         local_results_list = []
+
         for found in self.soup.findAll(self.top_level_element, self.top_level_attribute):
             for link in found.find_all(self.key_element, self.key_attribute, href=True):
                 # What you don't want to take, if you want all of the elements selected above,
                 # provide class as the qualifier_el and hidden as the qualifier_val
                 # if it is the case that the class is hidden, you don't want that link anyways
-                if isinstance(link[self.qualifier_el], list):
-                    if str(link[self.qualifier_el][0]) != self.qualifier_val:
-                        local_results_list.append(link["href"])
+                match_pattern = re.compile(self.qualifier_val)
+
+                if isinstance(link[self.qualifier_attr], list):
+                    if not re.match(match_pattern, link[self.qualifier_attr][0]):
+                        if not re.match(r'https://', link['href']):
+                            local_url = self.url + link['href']
+                        else:
+                            local_url = link['href']
+                        local_results_list.append(local_url)
                 else:
-                    if str(link[self.qualifier_el]) != self.qualifier_val:
-                        local_results_list.append(link["href"])
+                    if not re.match(match_pattern, link[self.qualifier_attr]):
+                        if not re.match(r'https://', link['href']):
+                            local_url = self.url + link['href']
+                        else:
+                            local_url = link['href']
+                        local_results_list.append(local_url)
+                print(local_url)
+
         if len(local_results_list) > 0:
             self.results_list.extend(local_results_list)
         else:

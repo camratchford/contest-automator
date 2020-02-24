@@ -3,7 +3,8 @@ from time import sleep
 
 
 class Filler(object):
-    def __init__(self, key_pairs, submit_element, url_list):
+    def __init__(self, key_pairs, submit_element, url_list, testing_mode):
+        self.testing_mode = testing_mode
         self.key_pairs = key_pairs
         self.submit_element = submit_element
         self.url_list = url_list
@@ -13,14 +14,20 @@ class Filler(object):
         self.popup_el = ""
 
     def fill(self):
-        options = webdriver.ChromeOptions()
-        options.accept_insecure_certs = True
-        options.headless = True
-        options.add_argument('--no-sandbox')
-        options.add_argument('--window-size=1920,1080')
-        options.add_argument('--disable-gpu')
-        driver = webdriver.Chrome(executable_path=r'/app/automator/chromedriver', chrome_options=options)
-        driver.set_window_size(1920, 1080)
+        if self.testing_mode:
+            options = webdriver.FirefoxOptions()
+            options.accept_insecure_certs = True
+            driver = webdriver.Firefox(firefox_options=options, )
+
+        else:
+            options = webdriver.ChromeOptions()
+            options.accept_insecure_certs = True
+            options.headless = True
+            options.add_argument('--no-sandbox')
+            options.add_argument('--window-size=1920,1080')
+            options.add_argument('--disable-gpu')
+            driver = webdriver.Chrome(executable_path=r'/app/automator/chromedriver', chrome_options=options)
+            driver.set_window_size(1920, 1080)
 
         driver.set_script_timeout(30)
         driver.set_page_load_timeout(30)

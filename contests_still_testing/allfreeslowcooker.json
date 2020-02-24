@@ -1,11 +1,11 @@
 {
-  "scanner_url": "https://steamykitchen.com/current-giveaways",
+  "scanner_url": "https://www.allfreeslowcookerrecipes.com/Foodie-Reviews/Slow-Cooker-Giveaways",
   "scanner_top_level_element": "div",
-  "scanner_top_level_attribute": {"class": "archives"},
+  "scanner_top_level_attribute": {"class": "list cellGrid"},
   "scanner_key_element": "a",
   "scanner_key_attribute": {"href": ""},
-  "scanner_qualifier_attr": "title",
-  "scanner_qualifier_val": "Past Winners",
+  "scanner_qualifier_attr": "target",
+  "scanner_qualifier_val": "article[0-9]*",
   "scanner_pagination_enabled": "",
   "scanner_starting_page": 0,
   "scanner_pagination_string": "",
@@ -20,4 +20,3 @@
   "filler_popups": "",
   "filler_popup_el": ""
 }
-

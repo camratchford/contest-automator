@@ -1,12 +1,1 @@
-*.pyc
-*.pem
-*.pub
-*.zip
-*.sql
-./tmp
-./build/*
-env
-venv
-*.vscode
-*.log
-/venv/
+/geckodriver.log

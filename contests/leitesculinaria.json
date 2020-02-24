@@ -4,7 +4,7 @@
   "scanner_top_level_attribute": {"class": "entry-header"},
   "scanner_key_element": "a",
   "scanner_key_attribute": {"href": ""},
-  "scanner_qualifier_el": "rel",
+  "scanner_qualifier_attr": "rel",
   "scanner_qualifier_val": "author",
   "scanner_pagination_enabled": "True",
   "scanner_starting_page": 1,
