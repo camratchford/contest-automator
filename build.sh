@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo docker image build --network mac_net -t contest_automator . 
+sudo docker image build --network bridge -t contest_automator .
 sudo docker run -it --rm \
-	--net mac_net --ip=10.0.10.25 \
+	--net bridge \
   -e FIRST_NAME=Namey \
   -e LAST_NAME=McNamerson \
   -e EMAIL=firstname.lastname@domain.tld \
