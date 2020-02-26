@@ -37,7 +37,6 @@ class Scanner(object):
 
         self.soup = BeautifulSoup(self.html_contents, "html5lib")
 
-        print(self.url)
         local_results_list = []
 
         for found in self.soup.findAll(self.top_level_element, self.top_level_attribute):
@@ -46,22 +45,27 @@ class Scanner(object):
                 # provide class as the qualifier_el and hidden as the qualifier_val
                 # if it is the case that the class is hidden, you don't want that link anyways
                 match_pattern = re.compile(self.qualifier_val)
+                url_pattern = re.compile(
+                        r'^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\.)+[\w]{2,}(?=\/[a-zA-Z0-9/\-])'
+                )
+                url_root = re.match(url_pattern, self.url).group()
 
                 if isinstance(link[self.qualifier_attr], list):
                     if not re.match(match_pattern, link[self.qualifier_attr][0]):
-                        if not re.match(r'https://', link['href']):
-                            local_url = self.url + link['href']
+                        if not re.match(r'https?:\/\/', link['href']):
+                            local_url = url_root + link['href']
                         else:
                             local_url = link['href']
-                        local_results_list.append(local_url)
+                        if local_url not in local_results_list:
+                            local_results_list.append(local_url)
                 else:
                     if not re.match(match_pattern, link[self.qualifier_attr]):
-                        if not re.match(r'https://', link['href']):
-                            local_url = self.url + link['href']
+                        if not re.match(r'https?:\/\/', link['href']):
+                            local_url = url_root + link['href']
                         else:
                             local_url = link['href']
-                        local_results_list.append(local_url)
-                print(local_url)
+                        if local_url not in local_results_list:
+                            local_results_list.append(local_url)
 
         if len(local_results_list) > 0:
             self.results_list.extend(local_results_list)

@@ -29,8 +29,8 @@ class Filler(object):
             driver = webdriver.Chrome(executable_path=r'/app/automator/chromedriver', chrome_options=options)
             driver.set_window_size(1920, 1080)
 
-        driver.set_script_timeout(30)
-        driver.set_page_load_timeout(30)
+        driver.set_script_timeout(60)
+        driver.set_page_load_timeout(90)
 
         print(self.key_pairs)
 
